@@ -1,10 +1,12 @@
 package sortieren;
  import gui.SortierAusgabe;
+ import guiProjekt.SortierAusgabeProjekt;
  import util.Util;
  import java.util.Arrays;
 
 public class InsertionSort {
     private SortierAusgabe ausgabe;
+    private SortierAusgabeProjekt ausgabeProjekt;
     public int[] a;
 
     public InsertionSort(int[] input) {
@@ -16,6 +18,12 @@ public class InsertionSort {
         a = input;
         this.ausgabe = ausgabe;
         ausgabe.println("InsertionSort gestartet");
+    }
+
+    public InsertionSort(int[] input, SortierAusgabeProjekt ausgabeProjekt) {
+        a = input;
+        this.ausgabeProjekt = ausgabeProjekt;
+        ausgabeProjekt.println("InsertionSort gestartet");
     }
 
     public void sortieren() {
