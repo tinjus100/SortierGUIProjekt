@@ -1,12 +1,14 @@
 package sortieren;
 
 import gui.SortierAusgabe;
+import guiProjekt.SortierAusgabeProjekt;
 import util.Util;
 
 import java.util.Arrays;
 
 public class SelectionSort {
     private SortierAusgabe ausgabe;
+    private SortierAusgabeProjekt ausgabeProjekt;
     public int[] a;
 
     public SelectionSort(int[] input) {
@@ -18,6 +20,12 @@ public class SelectionSort {
         a = input;
         this.ausgabe = ausgabe;
         ausgabe.println("SelectionSort gestartet");
+    }
+
+    public SelectionSort(int[] input, SortierAusgabeProjekt ausgabeProjekt) {
+        a = input;
+        this.ausgabeProjekt = ausgabeProjekt;
+        ausgabeProjekt.println("SelectionSort gestartet");
     }
 
     public void sortieren() {
