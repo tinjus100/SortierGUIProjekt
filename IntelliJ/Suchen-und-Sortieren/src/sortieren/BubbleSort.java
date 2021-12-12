@@ -1,12 +1,14 @@
 package sortieren;
 
 import gui.SortierAusgabe;
+import guiProjekt.SortierAusgabeProjekt;
 import util.Util;
 
 import java.util.Arrays;
 
 public class BubbleSort {
     private SortierAusgabe ausgabe;
+    private SortierAusgabeProjekt ausgabeProjekt;
     public int[] a;
 
     public BubbleSort(int[] input) {
@@ -18,6 +20,12 @@ public class BubbleSort {
         a = input;
         this.ausgabe = ausgabe;
         ausgabe.println("BubbleSort gestartet");
+    }
+
+    public BubbleSort(int[] input, SortierAusgabeProjekt ausgabeProjekt) {
+        a = input;
+        this.ausgabeProjekt = ausgabeProjekt;
+        ausgabeProjekt.println("BubbleSort gestartet");
     }
 
     public void sortieren() {
