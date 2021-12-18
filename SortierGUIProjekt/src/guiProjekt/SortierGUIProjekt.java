@@ -44,6 +44,7 @@ public class SortierGUIProjekt extends JFrame {
     private JButton bStart;
     private JButton bStandard;
     private JButton bGeneriereArray;
+    private int[] randomArray;
     private JTextArea taOutput;
     private SortierAusgabe ausgabe;
 
@@ -139,19 +140,31 @@ public class SortierGUIProjekt extends JFrame {
                 array3 = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
                 array4 = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
                 array5 = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
+                pArray.setArray(array);
+                pArray1.setArray(array1);
+                pArray2.setArray(array2);
+                pArray3.setArray(array3);
+                pArray4.setArray(array4);
+                pArray5.setArray(array5);
             }
         });
 
         bGeneriereArray.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int[] randomArray = ArrayGenerator.randomNumbers(8,100);
-                array = randomArray;
-                array1 = randomArray;
-                array2 = randomArray;
-                array3 = randomArray;
-                array4 = randomArray;
-                array5 = randomArray;
+                randomArray = ArrayGenerator.randomNumbers(8,100);
+                System.arraycopy(randomArray,0,array,0,8);
+                System.arraycopy(randomArray,0,array1,0,8);
+                System.arraycopy(randomArray,0,array2,0,8);
+                System.arraycopy(randomArray,0,array3,0,8);
+                System.arraycopy(randomArray,0,array4,0,8);
+                System.arraycopy(randomArray,0,array5,0,8);
+                pArray.setArray(array);
+                pArray1.setArray(array1);
+                pArray2.setArray(array2);
+                pArray3.setArray(array3);
+                pArray4.setArray(array4);
+                pArray5.setArray(array5);
             }
         });
 
