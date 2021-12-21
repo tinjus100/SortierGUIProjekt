@@ -40,12 +40,12 @@ public class SortierGUIProjekt extends JFrame {
             JOptionPane.showMessageDialog(null,
                     "Sortierverfahren:" +
                             "\n Du kannst entweder auf den Knopf unter einem beliebigen Sortierverfahren klicken oder diese über den zentralen Knopf gegeneinander antreten lassen." +
-                            "\n (Beachte: Du musst das Array zwischendurch zurücksetzen)" +
+                            "\n (Beachte: Du musst das Array zwischendurch zurücksetzen.)" +
                             "\n\nArray generieren:" +
                             "\n Du kannst (unten) entweder ein Array eingeben oder ein zufälliges automatisch generieren lassen." +
-                            "\n (Beachte: Du musst unter 'Das zu erstellende Array' die eingegebenen Zahlen mit Kommatas trennen oder" +
-                            "\n bei dem zufälligen Array dies entweder automatisch oder mithilfe von 'Array-Länge' und 'Max. Wert', die Länge des Arrays" +
-                            "\n und den maximalen Wert den dieser annehmen soll definieren. Außerdem kannst du noch bestimmen ob in dem Array Dopplungen sein sollen oder nicht)",
+                            "\n (Beachte: Du musst unter 'Das zu erstellende Array' die eingegebenen Zahlen mit Kommatas trennen und" +
+                            "\n bei dem zufälligen Array mithilfe von 'Array-Länge' und 'Max. Wert', die Länge des Arrays" +
+                            "\n und den maximalen Wert, den dieses annehmen soll, definieren. Außerdem kannst du noch bestimmen, ob in dem Array Dopplungen vorkommen sollen oder nicht.)",
                     "Anleitung",
                     JOptionPane.INFORMATION_MESSAGE);
         });
