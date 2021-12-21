@@ -206,7 +206,7 @@ public class SortierGUIProjekt extends JFrame {
         tfLength.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (tfLength.getText().equals("Länge des Arrays")) {
+                if (tfLength.getText().equals("Array-Länge")) {
                     tfLength.setText("");
                 }
             }
@@ -214,7 +214,7 @@ public class SortierGUIProjekt extends JFrame {
             @Override
             public void focusLost(FocusEvent e) {
                 if (tfLength.getText().equals("")) {
-                    tfLength.setText("Länge des Arrays");
+                    tfLength.setText("Array-Länge");
                 }
             }
         });
@@ -222,7 +222,7 @@ public class SortierGUIProjekt extends JFrame {
         tfMax.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (tfMax.getText().equals("Maximaler Wert")) {
+                if (tfMax.getText().equals("Max. Wert")) {
                     tfMax.setText("");
                 }
             }
@@ -230,7 +230,7 @@ public class SortierGUIProjekt extends JFrame {
             @Override
             public void focusLost(FocusEvent e) {
                 if (tfMax.getText().equals("")) {
-                    tfMax.setText("Maximaler Wert");
+                    tfMax.setText("Max. Wert");
                 }
             }
         });
