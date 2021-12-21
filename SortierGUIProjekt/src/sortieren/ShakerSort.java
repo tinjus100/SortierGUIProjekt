@@ -19,7 +19,7 @@ public class ShakerSort {
     public ShakerSort(int[] input, SortierAusgabe ausgabe) {
         a = input;
         this.ausgabe = ausgabe;
-        ausgabe.println("MergeSort gestartet");
+        ausgabe.println("ShakerSort gestartet");
     }
 
     public int[] sort(ArrayPanel panel) {
