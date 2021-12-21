@@ -1,8 +1,6 @@
 package guiProjekt;
 
-import sortieren.BubbleSort;
-import sortieren.InsertionSort;
-import sortieren.SelectionSort;
+import sortieren.*;
 import util.ArrayGenerator;
 import util.Util;
 
@@ -13,59 +11,22 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 public class SortierGUIProjekt extends JFrame {
-    private JPanel pMain;
 
-    private JPanel pLeft;
-    private JPanel PTL;
-    private JPanel PML;
-    private JPanel PBL;
-    private JButton bBubbleSort;
-    private JButton bSelectionSort;
-    private JButton bInsertionSort;
-    private ArrayPanel pArray;
-    private ArrayPanel pArray1;
-    private ArrayPanel pArray2;
-    private int[] array;
-    private int[] array1;
-    private int[] array2;
-
-    private JPanel pRight;
-    private JPanel PTR;
-    private JPanel PMR;
-    private JPanel PBR;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private ArrayPanel pArray3;
-    private ArrayPanel pArray4;
-    private ArrayPanel pArray5;
-    private int[] array3;
-    private int[] array4;
-    private int[] array5;
-
-    private JPanel pCenter;
-    private JPanel pStart;
-    private JPanel pChangeArray;
-    private JPanel pDefault;
-    private JPanel pRandom;
-    private JPanel pCustom;
-    private JButton bStart;
-    private JButton bStandard;
-    private JButton bApplyArray;
-    private JButton bGenerateArray;
+    private final ArrayPanel pArray, pArray1, pArray2, pArray3, pArray4, pArray5;
+    private int[] array, array1, array2, array3, array4, array5;
+    private JPanel pMain, pLeft, pRight, PTR, PMR, PBR, PTL, PML, PBL, pCenter, pStart, pChangeArray, pDefault, pRandom, pCustom;
+    private JButton bBubbleSort, bInsertionSort, bSelectionSort, bMergeSort, bShakerSort, bSimpleSort, bHilfe, bStart, bStandard, bApplyArray, bGenerateArray;
     private JTextArea taOutput;
-    private JTextField tfMax;
-    private JTextField tfLength;
-    private JTextField tfCreateArray;
+    private JTextField tfMax, tfLength, tfCreateArray;
     private JCheckBox cbDuplications;
     private int[] randomArray;
-    private int randomLength;
-    private int randomMax;
+    int randomLength, randomMax;
     private String eingabe;
-    private SortierAusgabe ausgabe;
+    private final SortierAusgabe ausgabe;
 
 
     public SortierGUIProjekt() {
+
         array = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
         array1 = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
         array2 = new int[]{3, 6, 12, 8, 3, 78, 3, 5};
@@ -75,6 +36,17 @@ public class SortierGUIProjekt extends JFrame {
 
         ausgabe = new SortierAusgabe(taOutput);
         eingabe = "0,0,0";
+
+        bHilfe.addActionListener(e -> {
+            JOptionPane.showMessageDialog(null,
+                    "Array generieren" +
+                            "\nDu kannst (unten) entweder ein Array eingeben oder ein zufälliges automatisch generieren lassen." +
+                            "\n\nSortierverfahren" +
+                            "Du kannst entweder auf den Knopf unter einem beliebigen Sortierverfahren klicken oder diese über den zentralen Knopf gegeneinander antreten lassen." +
+                            "\n(Beachte: Du musst das Array zwischendurch zurücksetzen)",
+                    "Anleitung",
+                    JOptionPane.INFORMATION_MESSAGE);
+        });
 
         bBubbleSort.addActionListener(new ActionListener() {
             @Override
@@ -115,6 +87,36 @@ public class SortierGUIProjekt extends JFrame {
             }
         });
 
+        bMergeSort.addActionListener(e -> {
+            new Thread() {
+
+                public void run() {
+                    MergeSort ms = new MergeSort(array3, ausgabe);
+                    ms.sortieren(pArray3);
+                }
+            }.start();
+        });
+
+        bShakerSort.addActionListener(e -> {
+            new Thread() {
+
+                public void run() {
+                    ShakerSort shso = new ShakerSort(array4, ausgabe);
+                    shso.sortieren(pArray4);
+                }
+            }.start();
+        });
+
+        bSimpleSort.addActionListener(e -> {
+            new Thread() {
+
+                public void run() {
+                    SimpleSort siso = new SimpleSort(array5, ausgabe);
+                    siso.sortieren(pArray5);
+                }
+            }.start();
+        });
+
         bStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -142,6 +144,30 @@ public class SortierGUIProjekt extends JFrame {
                             public void run(){
                                 InsertionSort isort = new InsertionSort(array2, ausgabe);
                                 isort.sortieren(pArray2);
+                            }
+                        }.start();
+
+                        new Thread() {
+
+                            public void run() {
+                                MergeSort ms = new MergeSort(array3, ausgabe);
+                                ms.sortieren(pArray3);
+                            }
+                        }.start();
+
+                        new Thread() {
+
+                            public void run() {
+                                ShakerSort shso = new ShakerSort(array4, ausgabe);
+                                shso.sortieren(pArray4);
+                            }
+                        }.start();
+
+                        new Thread() {
+
+                            public void run() {
+                                SimpleSort siso = new SimpleSort(array5, ausgabe);
+                                siso.sortieren(pArray5);
                             }
                         }.start();
                     }
